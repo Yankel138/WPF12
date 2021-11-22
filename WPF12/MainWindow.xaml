@@ -10,7 +10,7 @@
         <Style TargetType="CheckBox" >
             <Setter Property="Template">
                 <Setter.Value>
-                    <ControlTemplate TargetType="CheckBox" x:Name="CheckBoxTemplate">
+                    <ControlTemplate TargetType="CheckBox">
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto"/>
@@ -20,31 +20,9 @@
                             <Path x:Name="x" Fill="Gray" Stroke="Gray" StrokeThickness="5"  VerticalAlignment="Center" HorizontalAlignment="Center" Opacity="0">
                                 <Path.Data>
                                     <GeometryGroup>
-                                        <LineGeometry StartPoint="3,5" EndPoint="20,25"/>
-                                        <LineGeometry StartPoint="3,25" EndPoint="20,5"/>
-                                        <!--<PathGeometry>
-                                        <PathFigure StartPoint="5,5">
-                                            <PolyLineSegment>
-                                                <PolyLineSegment.Points>
-                                                    <Point X="10" Y="10"/>
-                                                    <Point X="15" Y="15"/>
-                                                    <Point X="10" Y="10"/>
-                                                    <Point X="5" Y="15"/>
-                                                    <Point X="15" Y="5"/>
-                                                    -->
-                                        <!--<Point X="40" Y="40"/>
-                                                    <Point X="30" Y="40"/>
-                                                    <Point X="30" Y="40"/>
-                                                    <Point X="25" Y="32"/>
-                                                    <Point X="20" Y="40"/>
-                                                    <Point X="10" Y="40"/>
-                                                    <Point X="20" Y="25"/>-->
-                                        <!--
-                                                </PolyLineSegment.Points>
-                                            </PolyLineSegment>
-                                        </PathFigure>
-                                    </PathGeometry>-->
-                                        </GeometryGroup>
+                                        <LineGeometry StartPoint="2,3" EndPoint="18,18"/>
+                                        <LineGeometry StartPoint="2,18" EndPoint="18,3"/>
+                                    </GeometryGroup>
                                 </Path.Data>
                             </Path>
                             <Path x:Name="krug" Fill="Gray" Stroke="Gray" StrokeThickness="5"  VerticalAlignment="Top" HorizontalAlignment="Center" Opacity="0">
@@ -53,17 +31,10 @@
                                 </Path.Data>
                             </Path>
                             <ContentPresenter Content="{TemplateBinding Content}" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" />
-
-
                         </Grid>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsChecked" Value="true">
                                 <Setter TargetName="x" Property="Opacity" Value="1" />
-                                <Setter TargetName="krug" Property="Opacity" Value="0" />
-                            </Trigger>
-                            <Trigger Property="IsChecked" Value="False">
-                                <Setter TargetName="x" Property="Opacity" Value="0" />
-                                <Setter TargetName="krug" Property="Opacity" Value="0" />
                             </Trigger>
                             <Trigger Property="IsChecked" Value="{x:Null}">
                                 <Setter TargetName="krug" Property="Opacity" Value="1" />
@@ -74,9 +45,9 @@
             </Setter>
         </Style>
     </Window.Resources>
-    <UniformGrid>
-        <CheckBox Content="123" IsChecked="True"/>
-        <CheckBox Content="1213" IsChecked="False"/>
-        <CheckBox Content="124" IsChecked="{x:Null}"/>
+    <UniformGrid Columns="3" >
+        <CheckBox Content="Checked" IsChecked="True"/>
+        <CheckBox Content="UnChecked" IsChecked="False"/>
+        <CheckBox Content="Indeterminate" IsChecked="{x:Null}"/>
     </UniformGrid>
 </Window>
